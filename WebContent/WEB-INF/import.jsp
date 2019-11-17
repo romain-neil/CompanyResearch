@@ -20,7 +20,7 @@
 					<label>Séparateur</label>
 					<select class="ui fluid search dropdown" name="separator">
 						<option value="1">,</option>
-						<option value="2">;</option>
+						<option disabled value="2">;</option>
 					</select>
 				</div>
 				<button class="ui button" type="submit">Importer le fichier</button>
