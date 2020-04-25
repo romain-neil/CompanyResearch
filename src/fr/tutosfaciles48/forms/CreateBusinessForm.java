@@ -15,15 +15,8 @@ public class CreateBusinessForm {
 	private static final String FIELD_ADDRESS = "adresse";
 	private static final String FIELD_IS_RECOVERED = "recall";
 	private static final String FIELD_NAME = "nom";
-	//private static final String FIELD_DATE_RECOVERY = "dateRecovery";
-	public static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-	
-	private String result;
-	private Map<String, String> errors = new HashMap<String, String>();
-	
-	public String getResult() {
-		return result;
-	}
+
+	private final Map<String, String> errors = new HashMap<>();
 	
 	public Map<String, String> getErrors() {
 		return errors;
@@ -35,12 +28,8 @@ public class CreateBusinessForm {
 		b.setAddress(this.getFieldValue(request, FIELD_ADDRESS));
 		
 		String reCall = this.getFieldValue(request, FIELD_IS_RECOVERED);
-		
-		if(reCall != null) {
-			b.setRecall(true);
-		} else {
-			b.setRecall(false);
-		}
+
+		b.setRecall(reCall != null);
 		
 		b.setName(this.getFieldValue(request, FIELD_NAME));
 		b.setDateAdded(new DateTime());

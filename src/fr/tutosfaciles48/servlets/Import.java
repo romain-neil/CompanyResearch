@@ -28,7 +28,7 @@ public class Import extends HttpServlet {
 		this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
 	}
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = this.getServletConfig().getInitParameter(PATH);
 		
 		System.out.println("Upload path: " + path);

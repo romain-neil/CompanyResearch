@@ -47,7 +47,7 @@ public class EditBusiness extends HttpServlet {
 		}
 	}
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		EditBusinessForm form = new EditBusinessForm();
 		
 		form.editBusiness(request);

@@ -30,20 +30,6 @@ public class Business {
 	}
 
 	/**
-	 * @return the recoveryDate
-	 */
-	public DateTime getRecoveryDate() {
-		return recoveryDate;
-	}
-
-	/**
-	 * @param recoveryDate the recoveryDate to set
-	 */
-	public void setRecoveryDate(DateTime recoveryDate) {
-		this.recoveryDate = recoveryDate;
-	}
-
-	/**
 	 * @return the name
 	 */
 	public String getName() {

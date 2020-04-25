@@ -19,7 +19,7 @@ public class DeleteBusiness extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 2244568008497309730L;
 	
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String nomEntreprise = getParameterValue(request);
 		
 		HttpSession session = request.getSession();

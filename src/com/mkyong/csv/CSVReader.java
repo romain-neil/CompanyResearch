@@ -19,11 +19,11 @@ import fr.tutosfaciles48.util.Constants;
 public class CSVReader {
 	
 	private static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
-	private HttpSession session;
-	private String file = "";
-	private DateTimeFormatter formatter;
+	private final HttpSession session;
+	private final String file;
+	private final DateTimeFormatter formatter;
 	
-	private Map<String, Business> entreprises;
+	private final Map<String, Business> entreprises;
 	
 	@SuppressWarnings("unchecked")
 	public CSVReader(String f, HttpServletRequest request) {
@@ -34,8 +34,8 @@ public class CSVReader {
 	}
 
     public void read(String separator) throws Exception {
-        String line = "";
-        String[] result = null;
+        String line;
+        String[] result;
         int i = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -67,7 +67,7 @@ public class CSVReader {
     	b.setAddress(line[2]);
     	b.setDateAdded(formatter.parseDateTime(line[3]));
     	
-    	boolean recall = (line[4] == "Oui") ? true : false;
+    	boolean recall = line[4].equals("Oui");
     	b.setRecall(recall);
     	
     	b.setIsHiring(Boolean.parseBoolean(line[5]));

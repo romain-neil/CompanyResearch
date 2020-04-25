@@ -40,7 +40,7 @@ public class CreateBusiness extends HttpServlet {
 			Map<String, Business> entreprises = (HashMap<String, Business>) session.getAttribute("liste");
 			
 			if(entreprises == null) {
-				entreprises = new HashMap<String, Business>();
+				entreprises = new HashMap<>();
 			}
 			
 			entreprises.put(entreprise.getUuid(), entreprise);

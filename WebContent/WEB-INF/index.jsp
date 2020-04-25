@@ -12,8 +12,15 @@
 		<c:import url="inc/menu.jsp" />
 		<div class="ui main text container">​
 			<c:choose>
+				<c:when test="${!empty sessionScope.message}">
+					<div class="ui warning message">
+						<c:out value="${sessionScope.message}" />
+					</div>
+				</c:when>
+			</c:choose>
+			<c:choose>
 				<c:when test="${!empty sessionScope.liste }">
-				<span class="left"><h2>Liste des entreprises</h2></span><span class="right">Total: <c:out value="${sessionScope.liste.size()}" /></span>
+					<span class="left"><h2>Liste des entreprises</h2></span><span class="right">Total: <c:out value="${sessionScope.liste.size()}" /></span>
 					<table class="ui celled table">
 						<thead>
 							<tr>
@@ -44,4 +51,7 @@
 			</c:choose>
 		</div>
 	</body>
+	<footer>
+		<p>Version 1.1.0 - 23/04/2020</p>
+	</footer>
 </html>

@@ -16,17 +16,6 @@ public class EditBusinessForm {
 	private static final String FIELD_NAME = "nom";
 	private static final String FIELD_UUID = "uuid";
 	
-	private String result;
-	private Map<String, String> errors = new HashMap<String, String>();
-	
-	public String getResult() {
-		return result;
-	}
-	
-	public Map<String, String> getErrors() {
-		return errors;
-	}
-	
 	public void editBusiness(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
@@ -40,18 +29,10 @@ public class EditBusinessForm {
 		
 		b.setName(name);
 		b.setAddress(address);
-		
-		if(recall != null) {
-			b.setRecall(true);
-		} else {
-			b.setRecall(false);
-		}
-		
-		if(isHiring != null) {
-			b.setIsHiring(true);
-		} else {
-			b.setIsHiring(false);
-		}
+
+		b.setRecall(recall != null);
+
+		b.setIsHiring(isHiring != null);
 	}
 	
 	private String getFieldValue(HttpServletRequest request, String fieldName) {

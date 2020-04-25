@@ -21,7 +21,7 @@ public class ImportForm {
 	private static final int BUFFER_SIZE = 10240;
 	
 	private String result;
-	private Map<String, String> errors = new HashMap<String, String>();
+	private final Map<String, String> errors = new HashMap<>();
 	
 	public String getResult() {
 		return result;
@@ -47,13 +47,13 @@ public class ImportForm {
 			fileContent = part.getInputStream();
 		} catch(IllegalStateException e) {
 			e.printStackTrace();
-			setError(FIELD_FILE, "Les données envoyées sont trop volumineuses.");
+			setError(FIELD_FILE, "Les donnÃ©es envoyÃ©es sont trop volumineuses.");
 		} catch(IOException e) {
 			e.printStackTrace();
 			setError(FIELD_FILE, "Erreur de configuration du serveur");
 		} catch(ServletException e) {
 			e.printStackTrace();
-			setError(FIELD_FILE, "Ce type de requête n'est pas supporté, merci d'utiliser le formulaire prévu pour envoyer le fichier.");
+			setError(FIELD_FILE, "Ce type de requÃªte n'est pas supportÃ©, merci d'utiliser le formulaire prÃ©vu pour envoyer le fichier.");
 		} catch(Exception e) {
 			e.printStackTrace();
 			setError(FIELD_FILE, "Erreur inconnue");
@@ -72,13 +72,12 @@ public class ImportForm {
 			try {
 				writeFile(fileContent, path, fileName);
 			} catch(Exception e) {
-				setError(FIELD_FILE, "Erreur lors de l'écriture du fichier sur le disque.");
+				setError(FIELD_FILE, "Erreur lors de l'Ã©criture du fichier sur le disque.");
 			}
 		}
 		
 		if(errors.isEmpty()) {
-			result = "Succès de l'envoi du fichier";
-			errors.clear();
+			result = "SuccÃ¨s de l'envoi du fichier";
 		} else {
 			result = "Echec de l'envoi du fichier.";
 		}
@@ -98,7 +97,7 @@ public class ImportForm {
 	
 	private void validateFile(String fileName, InputStream fileContent) throws Exception {
 		if(fileName == null || fileContent == null) {
-			throw new Exception("Merci de sélectionner un fichier à envoyer");
+			throw new Exception("Merci de sÃ©lectionner un fichier Ã  envoyer");
 		}
 	}
 	
@@ -107,26 +106,15 @@ public class ImportForm {
 	}
 	
 	private void writeFile(InputStream content, String path, String fileName) throws Exception {
-		BufferedInputStream in = null;
-		BufferedOutputStream out = null;
-		
-		try {
-			in = new BufferedInputStream(content, BUFFER_SIZE);
-			out = new BufferedOutputStream(new FileOutputStream(new File(path + fileName)));
-			
+
+		try (BufferedInputStream in = new BufferedInputStream(content, BUFFER_SIZE); BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(path + fileName)))) {
+
 			byte[] buffer = new byte[BUFFER_SIZE];
-			int length = 0;
-			
-			while((length = in.read(buffer)) > 0) {
+			int length;
+
+			while ((length = in.read(buffer)) > 0) {
 				out.write(buffer, 0, length);
 			}
-		} finally {
-			try {
-				out.close();
-			} catch(IOException ignore) {}
-			try {
-				in.close();
-			} catch(IOException ignore) {}
 		}
 	}
 	

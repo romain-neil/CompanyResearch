@@ -19,17 +19,19 @@ public class Index extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -5602071631160504168L;
 	
-	private Map<String, Business> liste = new HashMap<String, Business>();
+	private final Map<String, Business> liste = new HashMap<>();
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession s = request.getSession();
 		
 		if(s.getAttribute("liste") == null) {
-			s.setAttribute("liste",  liste);
+			s.setAttribute("liste", liste);
 		}
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+
+		s.setAttribute("message", null);
 	}
 
 }

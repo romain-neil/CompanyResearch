@@ -9,23 +9,6 @@
 			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
 		</jsp-property-group>
 	</jsp-config>
- 	
-	<filter>
-		<filter-name>Set Character Encoding</filter-name>
-		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-		<init-param>
-			<param-name>ignore</param-name>
-			<param-value>false</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>Set Character Encoding</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
 	
 	<servlet>
 		<servlet-name>Index</servlet-name>
@@ -52,10 +35,10 @@
 		<servlet-class>fr.tutosfaciles48.servlets.Import</servlet-class>
 		<init-param>
 			<param-name>import_path</param-name> 
-			<param-value>c:/tmp/tmp_app/</param-value> 
+			<param-value>O:/Temp</param-value>
 		</init-param>
 		<multipart-config>
-			<location>c:/tmp/tmp_app</location>
+			<location>O:/Temp</location>
 			<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
 			<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
 			<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->

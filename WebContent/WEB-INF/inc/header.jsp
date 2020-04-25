@@ -16,8 +16,8 @@
 		margin-top: 2em;
 	}
 	.ui.footer.segment {
-		margin: 5em 0em 0em;
-		padding: 5em 0em;
+		margin: 5em 0 0;
+		padding: 5em 0;
 	}
 	.left {float: left}
 	.right {float: right}
