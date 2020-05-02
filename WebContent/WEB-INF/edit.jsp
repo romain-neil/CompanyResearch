@@ -14,12 +14,12 @@
 			<h2>Modifier une entreprise</h2>
 			<form class="ui form" action="" method="post">
 				<div class="field">
-					<label>Nom de l'entreprise</label>
-					<input type="text" name="nom" value="<c:out value='${ent.name }' />">
+					<label for="name">Nom de l'entreprise</label>
+					<input id="name" type="text" name="nom" value="<c:out value='${ent.name }' />">
 				</div>
 				<div class="field">
-					<label>Adresse</label>
-					<input type="text" name="adresse" value="<c:out value='${ent.address }' />">
+					<label for="address">Adresse</label>
+					<input id="address" type="text" name="adresse" value="<c:out value='${ent.address }' />">
 				</div>
 				<div class="field">
 					<div class="ui checkbox">

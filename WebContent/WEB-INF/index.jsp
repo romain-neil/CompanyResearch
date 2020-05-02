@@ -51,7 +51,7 @@
 			</c:choose>
 		</div>
 	</body>
-	<footer>
-		<p>Version 1.1.0 - 23/04/2020</p>
-	</footer>
+	<div class="footer">
+		<c:import url="inc/footer.jsp" />
+	</div>
 </html>

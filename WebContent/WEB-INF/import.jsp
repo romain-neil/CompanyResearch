@@ -27,4 +27,7 @@
 			</form>
 		</div>
 	</body>
+	<div class="footer">
+		<c:import url="inc/footer.jsp" />
+	</div>
 </html>

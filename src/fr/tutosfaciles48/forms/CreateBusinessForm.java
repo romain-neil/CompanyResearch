@@ -1,7 +1,5 @@
 package fr.tutosfaciles48.forms;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,32 +14,43 @@ public class CreateBusinessForm {
 	private static final String FIELD_IS_RECOVERED = "recall";
 	private static final String FIELD_NAME = "nom";
 
-	private final Map<String, String> errors = new HashMap<>();
+	private String lastError = "";
+
+	public boolean hasError() {
+		return lastError.isBlank();
+	}
 	
-	public Map<String, String> getErrors() {
-		return errors;
+	public String getError() {
+		return lastError;
 	}
 	
 	public Business createBusiness(HttpServletRequest request) {
 		Business b = new Business();
-		
-		b.setAddress(this.getFieldValue(request, FIELD_ADDRESS));
-		
+
+		String name = this.getFieldValue(request, FIELD_NAME);
+		String address = this.getFieldValue(request, FIELD_ADDRESS);
 		String reCall = this.getFieldValue(request, FIELD_IS_RECOVERED);
 
-		b.setRecall(reCall != null);
-		
-		b.setName(this.getFieldValue(request, FIELD_NAME));
-		b.setDateAdded(new DateTime());
-		b.setUuid(UUID.randomUUID().toString());
-		
-		return b;
+		if(name.isBlank() || address.isBlank() || reCall.isBlank()) {
+			b.setAddress(address);
+			b.setRecall(reCall.equals("true"));
+			b.setName(this.getFieldValue(request, FIELD_NAME));
+
+			b.setDateAdded(new DateTime());
+			b.setUuid(UUID.randomUUID().toString());
+
+			return b;
+		}
+
+		lastError = "Un ou plusieurs champs sont vides";
+
+		return null;
 	}
 	
 	private String getFieldValue(HttpServletRequest request, String fieldName) {
 		String value = request.getParameter(fieldName);
 		if(value == null || value.trim().length() == 0) {
-			return null;
+			return "";
 		} else {
 			return value;
 		}

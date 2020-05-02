@@ -21,4 +21,13 @@
 	}
 	.left {float: left}
 	.right {float: right}
+
+	.footer {
+		position: absolute;
+		margin-top: -50px;
+		left: 0;
+		width: 100%;
+		padding: 15px;
+		bottom: 0;
+	}
 </style>

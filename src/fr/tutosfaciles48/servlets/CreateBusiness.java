@@ -26,16 +26,15 @@ public class CreateBusiness extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CreateBusinessForm form = new CreateBusinessForm();
-		
+
 		Business entreprise = form.createBusiness(request);
-		
+
 		request.setAttribute("entreprise",  entreprise);
 		request.setAttribute("form", form);
+
+		HttpSession session = request.getSession();
 		
-		if(form.getErrors().isEmpty()) {
-			//Si il n'y a pas d'erreurs
-			HttpSession session = request.getSession();
-			
+		if(!form.hasError()) { //Si il n'y a pas d'erreurs
 			@SuppressWarnings({ "unchecked" })
 			Map<String, Business> entreprises = (HashMap<String, Business>) session.getAttribute("liste");
 			
@@ -49,8 +48,10 @@ public class CreateBusiness extends HttpServlet {
 			
 			response.sendRedirect(this.getServletContext().getContextPath() + "/");
 		} else {
+			session.setAttribute("message", form.getError());
+
 			this.getServletContext().getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
 		}
 	}
-
+	
 }
