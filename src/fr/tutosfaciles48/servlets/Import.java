@@ -1,6 +1,7 @@
 package fr.tutosfaciles48.servlets;
 
 import java.io.IOException;
+import java.io.Serial;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,9 +15,7 @@ import fr.tutosfaciles48.util.Constants;
 
 public class Import extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	@Serial
 	private static final long serialVersionUID = -4616242187861932761L;
 	
 	public static final String PATH = "import_path";

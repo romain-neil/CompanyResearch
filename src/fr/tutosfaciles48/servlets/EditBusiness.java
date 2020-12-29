@@ -1,6 +1,7 @@
 package fr.tutosfaciles48.servlets;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,9 +19,7 @@ public class EditBusiness extends HttpServlet {
 	
 	private static final String VUE = "/WEB-INF/edit.jsp";
 
-	/**
-	 * 
-	 */
+	@Serial
 	private static final long serialVersionUID = 5799950166871570064L;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,9 +1,6 @@
 package fr.tutosfaciles48.servlets;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +17,7 @@ import fr.tutosfaciles48.util.Constants;
 
 public class Export extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	@Serial
 	private static final long serialVersionUID = -6493324773850616370L;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -47,7 +42,7 @@ public class Export extends HttpServlet {
 
 			String isHiring = value.getIsHiring();
 			boolean hiring = false;
-			if(isHiring.toLowerCase().equals("oui")) {
+			if(isHiring.equalsIgnoreCase("oui")) {
 				hiring = true;
 			}
 

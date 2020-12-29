@@ -1,6 +1,7 @@
 package fr.tutosfaciles48.servlets;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,13 +16,13 @@ import fr.tutosfaciles48.forms.CreateBusinessForm;
 
 public class CreateBusiness extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	public static String VUE = "/WEB-INF/create.jsp";
+
+	@Serial
 	private static final long serialVersionUID = 7336220822974248171L;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

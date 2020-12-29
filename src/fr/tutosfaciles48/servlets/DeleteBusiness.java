@@ -1,6 +1,7 @@
 package fr.tutosfaciles48.servlets;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,9 +15,7 @@ import fr.tutosfaciles48.beans.Business;
 
 public class DeleteBusiness extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	@Serial
 	private static final long serialVersionUID = 2244568008497309730L;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
