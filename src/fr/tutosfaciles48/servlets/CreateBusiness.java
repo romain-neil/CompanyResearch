@@ -16,7 +16,7 @@ import fr.tutosfaciles48.forms.CreateBusinessForm;
 
 public class CreateBusiness extends HttpServlet {
 
-	public static String VUE = "/WEB-INF/create.jsp";
+	public static final String VUE = "/WEB-INF/create.jsp";
 
 	@Serial
 	private static final long serialVersionUID = 7336220822974248171L;
@@ -35,14 +35,14 @@ public class CreateBusiness extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		
-		if(!form.hasError()) { //Si il n'y a pas d'erreurs
+		if(entreprise != null) { //Si il n'y a pas d'erreurs
 			@SuppressWarnings({ "unchecked" })
 			Map<String, Business> entreprises = (HashMap<String, Business>) session.getAttribute("liste");
 			
 			if(entreprises == null) {
 				entreprises = new HashMap<>();
 			}
-			
+
 			entreprises.put(entreprise.getUuid(), entreprise);
 			
 			session.setAttribute("liste", entreprises);
@@ -51,7 +51,7 @@ public class CreateBusiness extends HttpServlet {
 		} else {
 			session.setAttribute("message", form.getError());
 
-			this.getServletContext().getRequestDispatcher("/WEB-INF/create.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 		}
 	}
 	

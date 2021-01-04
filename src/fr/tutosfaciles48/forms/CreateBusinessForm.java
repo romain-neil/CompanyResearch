@@ -31,10 +31,10 @@ public class CreateBusinessForm {
 		String address = this.getFieldValue(request, FIELD_ADDRESS);
 		String reCall = this.getFieldValue(request, FIELD_IS_RECOVERED);
 
-		if(name.isBlank() || address.isBlank() || reCall.isBlank()) {
+		if(!name.isBlank() && !address.isBlank()) {
 			b.setAddress(address);
 			b.setRecall(reCall.equals("true"));
-			b.setName(this.getFieldValue(request, FIELD_NAME));
+			b.setName(name);
 
 			b.setDateAdded(new DateTime());
 			b.setUuid(UUID.randomUUID().toString());
