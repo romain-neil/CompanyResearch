@@ -14,6 +14,9 @@ public class Business {
 	
 	private String uuid;
 	private String isHiring;
+
+	private String email;
+	private String phone;
 	
 	/**
 	 * @return the dateAdded
@@ -102,4 +105,19 @@ public class Business {
 		this.isHiring = isHiring ? "Oui" : "Non";
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

@@ -13,6 +13,8 @@ public class CreateBusinessForm {
 	private static final String FIELD_ADDRESS = "adresse";
 	private static final String FIELD_IS_RECOVERED = "recall";
 	private static final String FIELD_NAME = "nom";
+	private static final String FIELD_EMAIL = "email";
+	private static final String FIELD_PHONE = "phone";
 
 	private String lastError = "";
 
@@ -30,11 +32,15 @@ public class CreateBusinessForm {
 		String name = this.getFieldValue(request, FIELD_NAME);
 		String address = this.getFieldValue(request, FIELD_ADDRESS);
 		String reCall = this.getFieldValue(request, FIELD_IS_RECOVERED);
+		String email = getFieldValue(request, FIELD_EMAIL);
+		String phone = getFieldValue(request, FIELD_PHONE);
 
 		if(!name.isBlank() && !address.isBlank()) {
 			b.setAddress(address);
 			b.setRecall(reCall.equals("true"));
 			b.setName(name);
+			b.setEmail(email);
+			b.setPhone(phone);
 
 			b.setDateAdded(new DateTime());
 			b.setUuid(UUID.randomUUID().toString());

@@ -35,18 +35,12 @@ public class Export extends HttpServlet {
 		String file = "O:/Temp/export.csv";
 		FileWriter writer = new FileWriter(file);
 
-		CSVUtils.writeLine(writer, Arrays.asList("Name", "Address", "AddedTime", "ReCall", "isHiring", "Uuid"));
+		CSVUtils.writeLine(writer, Arrays.asList("Version", "Name", "Address", "AddedTime", "ReCall", "isHiring", "email", "phone", "Uuid"));
 
 		for (Map.Entry<String, Business> entry : entreprises.entrySet()) {
 			Business value = entry.getValue();
 
-			String isHiring = value.getIsHiring();
-			boolean hiring = false;
-			if(isHiring.equalsIgnoreCase("oui")) {
-				hiring = true;
-			}
-
-			CSVUtils.writeLine(writer, Arrays.asList(Integer.toString(Constants.INTERNAL_CSV_VERSION), value.getName(), value.getAddress(), value.getDateAdded().toString(), value.getRecall(), Boolean.toString(hiring), value.getUuid()));
+			CSVUtils.writeLine(writer, Arrays.asList(Integer.toString(Constants.INTERNAL_CSV_VERSION), value.getName(), value.getAddress(), value.getDateAdded().toString(), value.getRecall(), value.getIsHiring(), value.getEmail(), value.getPhone(), value.getUuid()));
 		}
 
 		writer.flush();

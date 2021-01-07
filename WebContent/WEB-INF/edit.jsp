@@ -33,6 +33,14 @@
 						<label>L'entreprise recrute</label>
 					</div>
 				</div>
+				<div class="field">
+					<input type="email" name="email" value="<c:out value='${ent.email}' />">
+					<label>Adresse de contact</label>
+				</div>
+				<div class="field">
+					<input type="tel" name="phone" value="<c:out value='${ent.phone}' />">
+					<label>Telephone</label>
+				</div>
 				<input name="uuid" value="<c:out value='${ent.uuid }' />" hidden="hidden">
 				<button class="ui button" type="submit">Submit</button>
 			</form>

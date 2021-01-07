@@ -30,6 +30,14 @@
 						<label for="recontact">Entreprise recontactée</label>
 					</div>
 				</div>
+				<div class="field">
+					<input type="email" name="email">
+					<label>Adresse de contact</label>
+				</div>
+				<div class="field">
+					<input type="tel" name="phone">
+					<label>Telephone</label>
+				</div>
 				<button class="ui button" type="submit">Submit</button>
 			</form>
 		</div>

@@ -71,8 +71,10 @@ public class CSVReader {
     	b.setRecall(recall);
     	
     	b.setIsHiring(Boolean.parseBoolean(line[5]));
+    	b.setEmail(line[6]);
+    	b.setPhone(line[7]);
     	
-    	String uuid = line[6];
+    	String uuid = line[8];
     	if(uuid == null) {
     		uuid = UUID.randomUUID().toString();
     	}

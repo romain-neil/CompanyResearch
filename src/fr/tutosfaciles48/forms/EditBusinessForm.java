@@ -14,6 +14,8 @@ public class EditBusinessForm {
 	private static final String FIELD_IS_HIRING = "isHiring";
 	private static final String FIELD_IS_RECOVERED = "recall";
 	private static final String FIELD_NAME = "nom";
+	private static final String FIELD_EMAIL = "email";
+	private static final String FIELD_PHONE = "phone";
 	private static final String FIELD_UUID = "uuid";
 	
 	public void editBusiness(HttpServletRequest request) {
@@ -26,13 +28,15 @@ public class EditBusinessForm {
 		String address = getFieldValue(request, FIELD_ADDRESS);
 		String recall = getFieldValue(request, FIELD_IS_RECOVERED);
 		String isHiring = getFieldValue(request, FIELD_IS_HIRING);
+		String email = getFieldValue(request, FIELD_EMAIL);
+		String phone = getFieldValue(request, FIELD_PHONE);
 		
 		b.setName(name);
 		b.setAddress(address);
-
 		b.setRecall(recall != null);
-
 		b.setIsHiring(isHiring != null);
+		b.setEmail(email);
+		b.setPhone(phone);
 	}
 	
 	private String getFieldValue(HttpServletRequest request, String fieldName) {
