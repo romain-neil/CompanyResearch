@@ -54,14 +54,15 @@ public class CSVReader {
     
     private void processLine(String[] line, HttpSession session) throws Exception {
     	Business b = new Business();
+
+    	int fileVersion = Integer.parseInt(line[0]);
     	
-    	if(Integer.parseInt(line[0]) < Constants.INTERNAL_CSV_VERSION) {
+    	if(fileVersion < Constants.INTERNAL_CSV_VERSION) {
     		throw new Exception("The file format is too old to be processed for the moment. Conversions will come in the future.");
-    	} else if(Integer.parseInt(line[0]) > Constants.INTERNAL_CSV_VERSION) {
+    	} else if(fileVersion > Constants.INTERNAL_CSV_VERSION) {
     		throw new Exception("The file format is too newer to be processed for the moment. COnversions will come in the future.");
     	}
-    	
-    	
+
     	//(file_)version,Name,Address,DateAdded,ReCall,isHiring,uuid
     	b.setName(line[1]);
     	b.setAddress(line[2]);

@@ -32,7 +32,6 @@ public class ImportForm {
 	}
 	
 	public Fichier saveFile(HttpServletRequest request, String path) {
-		
 		Fichier f = new Fichier();
 		
 		String fileName = null;
@@ -83,8 +82,8 @@ public class ImportForm {
 		}
 		
 		return f;
-		
 	}
+
 	private String getFileName(final Part part) {
 	    for (String content : part.getHeader("content-disposition").split(";")) {
 	        if (content.trim().startsWith("filename")) {
@@ -108,7 +107,6 @@ public class ImportForm {
 	private void writeFile(InputStream content, String path, String fileName) throws Exception {
 
 		try (BufferedInputStream in = new BufferedInputStream(content, BUFFER_SIZE); BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(path + fileName)))) {
-
 			byte[] buffer = new byte[BUFFER_SIZE];
 			int length;
 

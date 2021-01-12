@@ -14,21 +14,17 @@ public class CSVUtils {
 
     //https://tools.ietf.org/html/rfc4180
     private static String followCVSformat(String value) {
-
         String result = value;
         if (result.contains("\"")) {
             result = result.replace("\"", "\"\"");
         }
         return result;
-
     }
 
     public static void writeLine(Writer w, List<String> values, char separators, char customQuote) throws IOException {
-
         boolean first = true;
 
         //default customQuote is empty
-
         if (separators == ' ') {
             separators = DEFAULT_SEPARATOR;
         }
@@ -48,7 +44,6 @@ public class CSVUtils {
         }
         sb.append("\n");
         w.append(sb.toString());
-
     }
 
 }
