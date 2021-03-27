@@ -30,9 +30,9 @@ This code was tested by using Tomcat 9 on Windows 10 64b
 
 # Screenshots
 
-![Intreface d'accueil](https://scontent.tutosfaciles48.fr/assets/img/18a24267-7b6a-4b4d-9941-5fe6a49045b6.png)
+![Intreface d'accueil](https://dl.tutosfaciles48.fr/img/18a24267-7b6a-4b4d-9941-5fe6a49045b6.png)
 
-![Exemple d'utilisation](https://scontent.tutosfaciles48.fr/assets/img/8de72c0b-2bbe-495a-b1ac-c5d6d61b4b5f.png)
+![Exemple d'utilisation](https://dl.tutosfaciles48.fr/img/8de72c0b-2bbe-495a-b1ac-c5d6d61b4b5f.png)
 
 Note: pour le moment, l'export en pdf n'est pas implémenté, seul l'export en csv et l'import fonctionnent.
 
