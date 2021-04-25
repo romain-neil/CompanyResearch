@@ -29,6 +29,7 @@
 								<th>Ajouté le</th>
 								<th>Relancée ?</th>
 								<th>Embauche ?</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -39,6 +40,7 @@
 									<td><c:out value="${mapEnt.value.dateAdded }" /></td>
 									<td><c:out value="${mapEnt.value.recall }" /></td>
 									<td><c:out value="${mapEnt.value.isHiring }" /></td>
+									<td><a href="<c:url value='/delete?id=${mapEnt.value.uuid}'/>">🗑</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -29,6 +29,11 @@
 		<servlet-name>Export</servlet-name>
 		<servlet-class>fr.tutosfaciles48.servlets.Export</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>DeleteBusiness</servlet-name>
+		<servlet-class>fr.tutosfaciles48.servlets.DeleteBusiness</servlet-class>
+	</servlet>
 	
 	<servlet>
 		<servlet-name>Import</servlet-name>
@@ -68,6 +73,11 @@
 	<servlet-mapping>
 		<servlet-name>Import</servlet-name>
 		<url-pattern>/import</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DeleteBusiness</servlet-name>
+		<url-pattern>/delete</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
