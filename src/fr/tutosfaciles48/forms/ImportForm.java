@@ -2,7 +2,6 @@ package fr.tutosfaciles48.forms;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -106,7 +105,7 @@ public class ImportForm {
 	
 	private void writeFile(InputStream content, String path, String fileName) throws Exception {
 
-		try (BufferedInputStream in = new BufferedInputStream(content, BUFFER_SIZE); BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(path + fileName)))) {
+		try (BufferedInputStream in = new BufferedInputStream(content, BUFFER_SIZE); BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(path + fileName))) {
 			byte[] buffer = new byte[BUFFER_SIZE];
 			int length;
 
