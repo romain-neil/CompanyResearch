@@ -10,6 +10,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.jetbrains.annotations.NotNull;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -26,7 +27,7 @@ public class CSVReader {
 	private final Map<String, Business> entreprises;
 	
 	@SuppressWarnings("unchecked")
-	public CSVReader(String f, HttpServletRequest request) {
+	public CSVReader(String f, @NotNull HttpServletRequest request) {
 		session = request.getSession();
 		file = f;
 		entreprises = (HashMap<String, Business>) session.getAttribute("liste");
