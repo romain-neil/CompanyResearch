@@ -6,7 +6,6 @@
 		<title>Index</title>
 		
 		<c:import url="inc/header.jsp" />
-		
 	</head>
 	<body>
 		<c:import url="inc/menu.jsp" />
